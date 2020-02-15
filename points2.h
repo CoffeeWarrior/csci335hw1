@@ -51,9 +51,9 @@ class Points2 {
   // return *this;
   // }
   Points2& operator=(const Points2 &rhs){
-    Points2 copy = rhs;
-    std::swap(*this, copy);
-    return *this;
+			Points2 tmp = rhs;
+			std::swap(*this, tmp);
+			return *this;
   };
 
 
@@ -62,6 +62,8 @@ class Points2 {
   Points2(Points2 &&rhs){ 
     size_ = rhs.size_;
     sequence_ = rhs.sequence_;
+    rhs.sequence_ = nullptr;
+    rhs.size_ = 0;
   };
 
 
